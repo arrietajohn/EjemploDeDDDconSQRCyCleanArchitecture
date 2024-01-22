@@ -15,4 +15,3 @@ public class SavingBagMovement : FinancialMovement
     public virtual ICollection<ExpenseAndSavingBag>? ExpenseAndSavingBags { get; set; } = new List<ExpenseAndSavingBag>();
 }
 
-
