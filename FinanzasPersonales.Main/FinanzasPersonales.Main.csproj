@@ -21,4 +21,10 @@
     <ProjectReference Include="..\FinanzasPersonales.Persistence\FinanzasPersonales.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
