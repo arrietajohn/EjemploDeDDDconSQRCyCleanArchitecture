@@ -16,10 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\FinanzasPersonales.Application\FinanzasPersonales.Application.csproj" />
     <ProjectReference Include="..\FinanzasPersonales.Domain\FinanzasPersonales.Domain.csproj" />
   </ItemGroup>
 
