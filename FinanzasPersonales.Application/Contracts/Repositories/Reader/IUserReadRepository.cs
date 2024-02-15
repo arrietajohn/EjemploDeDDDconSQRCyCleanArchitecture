@@ -1,15 +1,9 @@
 ﻿using FinanzasPersonales.Domain.Entities;
 
-namespace FinanzasPersonales.Application.Contracts.Repositories;
+namespace FinanzasPersonales.Application.Contracts.Repositories.Reader;
 
-public interface  IUserRepository
+public interface IUserReadRepository<T> : IBaseDomainModelReadRepository<T> where T : User
 {
-
-    public Task<bool> SaveAsync(User user);
-    public Task<bool> DeleteAsync(int id);
-    public Task<bool> UpdateAsync(User user);
-    public Task<User> GetByIdAsync(int id);
-    public Task<IEnumerable<User>> GetAllAsync();
     public Task<IEnumerable<User>> GetByDescripcionAsync(string descripcion);
     public Task<User> GetByIdentificationAsync(int identificationNumber);
     public Task<User> GetByEmailAsync(int email);

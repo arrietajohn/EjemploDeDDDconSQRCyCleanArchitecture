@@ -1,8 +1,8 @@
 ﻿using FinanzasPersonales.Domain.Entities;
 
-namespace FinanzasPersonales.Application.Contracts.Repositories;
+namespace FinanzasPersonales.Application.Contracts.Repositories.Reader;
 
-public interface ISavingBagMovementRepository : IFinancialMovementRepository
+public interface ISavingBagMovementReadRepository<T> : IBaseDomainModelReadRepository<T> where T : SavingBagMovement
 {
     public Task<IEnumerable<SavingBagMovement>> GetByProposedValueAsync(decimal value);
     public Task<IEnumerable<SavingBagMovement>> GetByProposedValueBetweenAsync(decimal value1, decimal value2);
@@ -22,10 +22,8 @@ public interface ISavingBagMovementRepository : IFinancialMovementRepository
     public Task<IEnumerable<SavingBagMovement>> GetByPostponementDateBetweenAsync(DateTime date1, DateTime date2);
     public Task<IEnumerable<SavingBagMovement>> GetByStateAsync(string state);
     public Task<IEnumerable<SavingBagMovement>> GetByPurposeAsync(string purpose);
-
     public Task<SavingBagMovement> GetByIncomeAsync(int incomeId);
     public Task<SavingBagMovement> GetByIncomeAsync(IncomeMovement income);
-
     public Task<IEnumerable<SavingBagMovement>> GetByExpenseAsync(int expeneiId);
     public Task<IEnumerable<SavingBagMovement>> GetByExpenseAsync(ExpenseMovement expense);
     public Task<IEnumerable<SavingBagMovement>> GetByUserAsync(User user);

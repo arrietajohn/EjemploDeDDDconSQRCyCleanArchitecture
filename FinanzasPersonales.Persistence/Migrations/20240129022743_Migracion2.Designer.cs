@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinanzasPersonales.Persistence.Migrations
 {
     [DbContext(typeof(EfDatabeseContext))]
-    [Migration("20240122032321_MigracionInicial")]
-    partial class MigracionInicial
+    [Migration("20240129022743_Migracion2")]
+    partial class Migracion2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,7 +39,7 @@ namespace FinanzasPersonales.Persistence.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("FechaModificacion")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
@@ -65,11 +65,11 @@ namespace FinanzasPersonales.Persistence.Migrations
                     b.Property<int>("ExpenseMovementId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("FechaModificacion")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("IncomeMovementId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<decimal>("Percentage")
                         .HasColumnType("DECIMAL(18,2)");
@@ -100,7 +100,7 @@ namespace FinanzasPersonales.Persistence.Migrations
                     b.Property<int>("ExpenseMovementId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("FechaModificacion")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("Percentage")
@@ -142,7 +142,7 @@ namespace FinanzasPersonales.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("FechaModificacion")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
@@ -183,7 +183,7 @@ namespace FinanzasPersonales.Persistence.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("FechaModificacion")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("ReviewerId")
@@ -210,7 +210,7 @@ namespace FinanzasPersonales.Persistence.Migrations
                     b.Property<DateTime>("EndingDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("FechaModificacion")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Reason")
@@ -257,7 +257,7 @@ namespace FinanzasPersonales.Persistence.Migrations
                     b.Property<DateTime>("EndingDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("FechaModificacion")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("ReviewRequestId")
@@ -313,7 +313,7 @@ namespace FinanzasPersonales.Persistence.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("FechaModificacion")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
@@ -342,9 +342,6 @@ namespace FinanzasPersonales.Persistence.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("FechaModificacion")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -355,6 +352,9 @@ namespace FinanzasPersonales.Persistence.Migrations
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("NumeroIdentificacion")
                         .HasColumnType("nvarchar(max)");

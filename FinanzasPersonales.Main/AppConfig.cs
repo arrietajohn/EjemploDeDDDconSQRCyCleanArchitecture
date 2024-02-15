@@ -1,13 +1,13 @@
-﻿
-using FinanzasPersonales.Application.Contracts.Repositories;
+﻿using FinanzasPersonales.Application.Contracts.Repositories.Reader;
+using FinanzasPersonales.Application.Contracts.Repositories.Writer;
+using FinanzasPersonales.Domain.Entities;
 using FinanzasPersonales.Persistence.Database;
-using FinanzasPersonales.Persistence.Repositories;
+using FinanzasPersonales.Persistence.Repositories.Writers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using System;
 
 public static class AppConfig
 {
@@ -19,7 +19,7 @@ public static class AppConfig
             options.UseSqlServer(configuration.GetConnectionString("ConnectionString")));
 
         services.AddLogging();
-        services.AddScoped<ICategoryRepository, CategoryRepository>();
+        services.AddScoped<CategoryWriteRepository<Category>, CategoryWriteRepository>();
     }
 
     public static void ApplyMigrations(IServiceProvider serviceProvider)

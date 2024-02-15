@@ -1,9 +1,8 @@
-﻿
-using FinanzasPersonales.Domain.Entities;
+﻿using FinanzasPersonales.Domain.Entities;
 
-namespace FinanzasPersonales.Application.Contracts.Repositories;
+namespace FinanzasPersonales.Application.Contracts.Repositories.Reader;
 
-public interface IIncomeMovementRepository : IFinancialMovementRepository
+public interface IIncomeMovementReadRepository<T> : IFinancialMovementReadRepository<T> where T : IncomeMovement
 {
 
     public Task<IEnumerable<IncomeMovement>> GetByValueSavedAsync(decimal value);

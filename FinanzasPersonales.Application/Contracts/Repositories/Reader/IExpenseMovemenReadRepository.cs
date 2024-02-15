@@ -1,8 +1,8 @@
 ﻿using FinanzasPersonales.Domain.Entities;
 
-namespace FinanzasPersonales.Application.Contracts.Repositories;
+namespace FinanzasPersonales.Application.Contracts.Repositories.Reader;
 
-public interface IExpenseMovementRepository : IFinancialMovementRepository
+public interface IExpenseMovemenReadRepository<T> : IFinancialMovementReadRepository<T> where T : ExpenseMovement
 {
     public Task<IEnumerable<ExpenseMovement>> GetByCategoryAsync(int categoryId);
     public Task<IEnumerable<ExpenseMovement>> GetByCategoryAsync(Category category);

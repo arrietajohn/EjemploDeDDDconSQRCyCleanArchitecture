@@ -1,15 +1,10 @@
 ﻿using FinanzasPersonales.Domain.Entities;
 
-namespace FinanzasPersonales.Application.Contracts.Repositories;
+namespace FinanzasPersonales.Application.Contracts.Repositories.Reader;
 
-public interface ExpenseAndSavingBagRepository
+public interface IExpenseAndSavingBagReadRepository<T> : IBaseDomainModelReadRepository<T> where T : ExpenseAndSavingBag
 {
 
-    public Task<bool> SaveAsync(ExpenseAndSavingBag expenseAndSavingBag);
-    public Task<bool> DeleteAsync(int id);
-    public Task<bool> UpdateAsync(ExpenseAndSavingBag expenseAndSavingBag);
-    public Task<ExpenseAndSavingBag> GetByIdAsync(int id);
-    public Task<IEnumerable<ExpenseAndSavingBag>> GetAllAsync();
     public Task<IEnumerable<ExpenseAndSavingBag>> GetByValueAsync(decimal value);
     public Task<IEnumerable<ExpenseAndSavingBag>> GetByValueBetweenAsync(decimal value1, decimal value2);
     public Task<IEnumerable<ExpenseAndSavingBag>> GetMinValueAsync();

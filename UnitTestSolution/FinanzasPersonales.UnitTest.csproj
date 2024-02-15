@@ -18,6 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FinanzasPersonales.Application\FinanzasPersonales.Application.csproj" />
+    <ProjectReference Include="..\FinanzasPersonales.Domain\FinanzasPersonales.Domain.csproj" />
     <ProjectReference Include="..\FinanzasPersonales.Main\FinanzasPersonales.Main.csproj" />
     <ProjectReference Include="..\FinanzasPersonales.Persistence\FinanzasPersonales.Persistence.csproj" />
   </ItemGroup>

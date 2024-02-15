@@ -1,14 +1,9 @@
 ﻿using FinanzasPersonales.Domain.Entities;
 
-namespace FinanzasPersonales.Application.Contracts.Repositories;
+namespace FinanzasPersonales.Application.Contracts.Repositories.Reader;
 
-public interface IReviewRequestRepository 
+public interface IReviewRequestReadRepository<T> : IBaseDomainModelReadRepository<T> where T : ReviewRequest
 {
-    public Task<bool> SaveAsync(ReviewRequest reviewRequest);
-    public Task<bool> DeleteAsync(int id);
-    public Task<bool> UpdateAsync(ReviewRequest reviewRequest);
-    public Task<ReviewRequest> GetByIdAsync(int id);
-    public Task<IEnumerable<ReviewRequest>> GetAllAsync();
     public Task<IEnumerable<ReviewRequest>> GetBySubjectAsync(string subject);
     public Task<IEnumerable<ReviewRequest>> GetByStartDateAsync(DateTime startDate);
     public Task<IEnumerable<ReviewRequest>> GetByStartDateBetweenAsync(DateTime date1, DateTime date2);
